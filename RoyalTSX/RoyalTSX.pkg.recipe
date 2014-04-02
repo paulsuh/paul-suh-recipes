@@ -109,6 +109,8 @@
         	<dict>
         		<key>signing_cert</key>
         		<string>Developer ID Installer: ps Enable, Inc. (CC4C75F33Y)</string>
+        		<key>suffix_with_date</key>
+        		<true/>
         	</dict>
         </dict>
     </array>

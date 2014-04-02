@@ -16,17 +16,35 @@
     <key>Process</key>
     <array>
         <dict>
-            <key>Processor</key>
-            <string>MacUpdateInfoProvider</string>
-            <key>Arguments</key>
-            <dict>
-                <key>macupdate_url</key>
-                <string>https://www.macupdate.com/app/mac/45084/royal-tsx</string>
-            </dict>
+        	<key>Processor</key>
+        	<string>URLTextSearcher</string>
+        	<key>Arguments</key>
+        	<dict>
+        		<key>re_pattern</key>
+        		<string>href=\"(/download/.*)\" id</string>
+        		<key>url</key>
+        		<string>https://www.macupdate.com/app/mac/45084/royal-tsx</string>
+        		<key>result_output_var_name</key>
+        		<string>url_stub</string>
+        	</dict>
         </dict>
         <dict>
             <key>Processor</key>
             <string>URLDownloader</string>
+            <key>Arguments</key>
+            <dict>
+            	<key>url</key>
+            	<string>https://macupdate.com%url_stub%</string>
+            	<key>request_headers</key>
+            	<dict>
+            		<key>User-Agent</key>
+            		<string>Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9) AppleWebKit/537.71 (KHTML, like Gecko) Version/7.0 Safari/537.71</string>
+            	</dict>
+            </dict>
+        </dict>
+        <dict>
+        	<key>Processor</key>
+        	<string>EnvPrinter</string>
         </dict>
         <dict>
             <key>Processor</key>
