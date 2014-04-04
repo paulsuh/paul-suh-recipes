@@ -102,17 +102,6 @@
                 </dict>
             </dict>
         </dict>
-        <dict>
-        	<key>Processor</key>
-        	<string>PkgSigner</string>
-        	<key>Arguments</key>
-        	<dict>
-        		<key>signing_cert</key>
-        		<string>Developer ID Installer: ps Enable, Inc. (CC4C75F33Y)</string>
-        		<key>suffix_with_date</key>
-        		<true/>
-        	</dict>
-        </dict>
     </array>
 </dict>
 </plist>
