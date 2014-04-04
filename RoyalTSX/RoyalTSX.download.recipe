@@ -43,10 +43,6 @@
             </dict>
         </dict>
         <dict>
-        	<key>Processor</key>
-        	<string>EnvPrinter</string>
-        </dict>
-        <dict>
             <key>Processor</key>
             <string>EndOfCheckPhase</string>
         </dict>
