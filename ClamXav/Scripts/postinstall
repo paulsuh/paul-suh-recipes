@@ -1,0 +1,5 @@
+#!/bin/sh
+
+/usr/sbin/installer \
+	-target / \
+	-pkg /Applications/ClamXav.app/Contents/Resources/clamavEngineInstaller.pkg
