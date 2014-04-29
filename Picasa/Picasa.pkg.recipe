@@ -93,8 +93,6 @@
             <string>PkgInfoCreator</string>
             <key>Arguments</key>
             <dict>
-                <key>template_path</key>
-                <string>PackageInfoTemplate</string>
                 <key>infofile</key>
                 <string>%RECIPE_CACHE_DIR%/PackageInfo</string>
                 <key>pkgtype</key>
