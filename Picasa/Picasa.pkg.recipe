@@ -68,6 +68,27 @@
         	</dict>
         </dict>
         <dict>
+        	<key>Processor</key>
+        	<string>PkgInfoTemplateCreator</string>
+        	<key>Arguments</key>
+        	<dict>
+        		<key>template_values</key>
+				<dict>
+					<key>top_element_attributes</key>
+					<dict>
+						<key>format-version</key>
+						<string>2</string>
+						<key>install-location</key>
+						<string>/</string>
+						<key>auth</key>
+						<string>root</string>
+						<key>identifier</key>
+						<string>%app_cf_bundle_identifier%</string>
+					</dict>
+				</dict>
+        	</dict>
+        </dict>
+        <dict>
             <key>Processor</key>
             <string>PkgInfoCreator</string>
             <key>Arguments</key>
