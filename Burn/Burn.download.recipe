@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Description</key>
+	<string>Downloads Burn.</string>
+	<key>Identifier</key>
+	<string>com.github.paul-suh-recipes.download.Burn</string>
+	<key>Input</key>
+	<dict>
+		<key>NAME</key>
+		<string>Burn</string>
+		<key>SOURCEFORGE_FILE_PATTERN</key>
+		<string>burn[0-9]+-64bit.zip</string>
+		<key>SOURCEFORGE_PROJECT_ID</key>
+		<string>169226</string>
+	</dict>
+	<key>Process</key>
+	<array>
+		<dict>
+			<key>Processor</key>
+			<string>URLTextSearcher</string>
+			<key>Arguments</key>
+			<dict>
+				<key>re_pattern</key>
+				<string>link[^A-Za-z](.*%SOURCEFORGE_FILE_PATTERN%/download)</string>
+				<key>url</key>
+				<string>http://sourceforge.net/api/file/index/project-id/%SOURCEFORGE_PROJECT_ID%/rss</string>
+				<key>result_output_var_name</key>
+				<string>download_url</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>Processor</key>
+			<string>URLDownloader</string>
+			<key>Arguments</key>
+			<dict>
+				<key>url</key>
+				<string>%download_url%</string>
+				<key>filename</key>
+				<string>%NAME%.zip</string>
+			</dict>
+		</dict>
+        <dict>
+            <key>Processor</key>
+            <string>EndOfCheckPhase</string>
+        </dict>
+	</array>
+</dict>
+</plist>
+
+
