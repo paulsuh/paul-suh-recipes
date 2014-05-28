@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Description</key>
+    <string>Downloads latest version of PDFpenPro.</string>
+    <key>Identifier</key>
+    <string>com.github.paul-suh-recipes.download.PDFpenPro</string>
+    <key>Input</key>
+    <dict>
+        <key>NAME</key>
+        <string>PDFpenPro</string>
+        <key>BRANCH</key>
+        <string>release</string>
+    </dict>
+    <key>Process</key>
+    <array>
+        <dict>
+        	<key>Processor</key>
+        	<string>URLTextSearcher</string>
+        	<key>Arguments</key>
+        	<dict>
+        		<key>re_pattern</key>
+        		<string>href=\"(/download/.*)\" id</string>
+        		<key>url</key>
+        		<string>http://www.macupdate.com/app/mac/16857/pdfpenpro</string>
+        		<key>result_output_var_name</key>
+        		<string>url_stub</string>
+        	</dict>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>URLDownloader</string>
+            <key>Arguments</key>
+            <dict>
+            	<key>url</key>
+            	<string>https://macupdate.com%url_stub%</string>
+            	<key>request_headers</key>
+            	<dict>
+            		<key>User-Agent</key>
+            		<string>Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9) AppleWebKit/537.71 (KHTML, like Gecko) Version/7.0 Safari/537.71</string>
+            	</dict>
+            </dict>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>EndOfCheckPhase</string>
+        </dict>
+    </array>
+</dict>
+</plist>
+
+
+
