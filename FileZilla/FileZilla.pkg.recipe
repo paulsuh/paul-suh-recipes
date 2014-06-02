@@ -8,6 +8,8 @@
 	<string>com.github.paul-suh-recipes.pkg.FileZilla</string>
     <key>Input</key>
     <dict>
+    	<key>Name</key>
+    	<string>FileZilla</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.2.3</string>
