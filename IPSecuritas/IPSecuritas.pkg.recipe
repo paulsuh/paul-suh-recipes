@@ -28,6 +28,22 @@
                 <dict>
                     <key>Applications</key>
                     <string>0775</string>
+                    <key>Library</key>
+                    <string>0755</string>
+                    <key>Library/Application Support</key>
+                    <string>0755</string>
+                    <key>Library/Application Support/Lobotomo Software</key>
+                    <string>0755</string>
+                    <key>Library/Application Support/Lobotomo Software/IPSecuritas/</key>
+                    <string>0755</string>
+                    <key>Library/Application Support/Lobotomo Software/IPSecuritas/certs</key>
+                    <string>0755</string>
+                    <key>Library/LaunchDaemons</key>
+                    <string>0755</string>
+                    <key>Library/PrivilegedHelperTools</key>
+                    <string>0755</string>
+                    <key>Library/Widgets</key>
+                    <string>0755</string>
                 </dict>
             </dict>
         </dict>
@@ -40,6 +56,61 @@
                 <string>%pathname%/%NAME%.app</string>
                 <key>destination_path</key>
                 <string>%pkgroot%/Applications/%NAME%.app</string>
+            </dict>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>Copier</string>
+            <key>Arguments</key>
+            <dict>
+                <key>source_path</key>
+                <string>%pathname%/%NAME%.app/Contents/Library/helpers</string>
+                <key>destination_path</key>
+                <string>%pkgroot%/Library/Application Support/Lobotomo Software/IPSecuritas/helpers</string>
+            </dict>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>Copier</string>
+            <key>Arguments</key>
+            <dict>
+                <key>source_path</key>
+                <string>%pathname%/%NAME%.app/Contents/Library/LaunchServices/com.lobotomo.com.lobotomo.IPSecuritasDaemon</string>
+                <key>destination_path</key>
+                <string>%pkgroot%/Library/PrivilegedHelperTools</string>
+            </dict>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>Copier</string>
+            <key>Arguments</key>
+            <dict>
+                <key>source_path</key>
+                <string>%pathname%/%NAME%.app/Contents/Resources/IPSecuritas.wdgt</string>
+                <key>destination_path</key>
+                <string>%pkgroot%/Library/Widgets/IPSecuritas.wdgt</string>
+            </dict>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>PlistEditor</string>
+            <key>Arguments</key>
+            <dict>
+                <key>output_plist_path</key>
+                <string>%pkgroot%/Library/LaunchDaemons/com.lobotomo.IPSecuritasDaemon.plist</string>
+                <key>plist_data</key>
+                <dict>
+               		<key>KeepAlive</key>
+					<true/>
+					<key>Label</key>
+					<string>com.lobotomo.IPSecuritasDaemon</string>
+					<key>ProgramArguments</key>
+					<array>
+						<string>/Library/PrivilegedHelperTools/com.lobotomo.IPSecuritasDaemon</string>
+					</array>
+					<key>RunAtLoad</key>
+					<true/>
+                </dict>
             </dict>
         </dict>
         <dict>
@@ -124,6 +195,7 @@
                             <key>group</key>
                             <string>admin</string>
                         </dict>
+                        <dict>
                     </array>
                 </dict>
             </dict>
