@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Description</key>
+    <string>Packages the current release version of ChronoSync. Just need to extract and rename ezisting pkg from dmg. </string>
+	<key>Identifier</key>
+	<string>com.github.paul-suh-recipes.pkg.ChronoSync</string>
+    <key>Input</key>
+    <dict>
+        <key>NAME</key>
+        <string>ChronoSync</string>
+        <key>APP_NAME</key>
+        <string>ChronoSync</string>
+    </dict>
+    <key>MinimumVersion</key>
+    <string>0.2.9</string>
+    <key>ParentRecipe</key>
+    <string>com.github.paul-suh-recipes.download.ChronoSync</string>
+    <key>Process</key>
+    <array>
+        <dict>
+        	<key>Processor</key>
+        	<string>PkgCopier</string>
+        	<key>Arguments</key>
+        	<dict>
+        		<key>source_pkg</key>
+        		<string>%pathname%/Install.pkg</string>
+        		<key>pkg_path</key>
+        		<string>%RECIPE_CACHE_DIR%/%NAME%.pkg</string>
+        	</dict>
+        </dict>
+        <dict>
+        	<key>Processor</key>
+        	<string>FlatPkgUnpacker</string>
+        	<key>Arguments</key>
+        	<dict>
+        		<key>flat_pkg_path</key>
+        		<string>%pkg_path%</string>
+        		<key>skip_payload</key>
+        		<false/>
+        		<key>destination_path</key>
+        		<string>%RECIPE_CACHE_DIR%/pkg_temp</string>
+        	</dict>
+        </dict>
+    </array>
+</dict>
+</plist>
+

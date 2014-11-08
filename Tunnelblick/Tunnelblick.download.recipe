@@ -3,13 +3,13 @@
 <plist version="1.0">
 <dict>
     <key>Description</key>
-    <string>Downloads latest version of Acorn.</string>
+    <string>Downloads latest version of Tunnelblick.</string>
     <key>Identifier</key>
-    <string>com.github.paul-suh-recipes.download.Acorn</string>
+    <string>com.github.paul-suh-recipes.download.Tunnelblick</string>
     <key>Input</key>
     <dict>
         <key>NAME</key>
-        <string>Acorn</string>
+        <string>Tunnelblick</string>
         <key>BRANCH</key>
         <string>release</string>
     </dict>
@@ -21,9 +21,9 @@
         	<key>Arguments</key>
         	<dict>
         		<key>re_pattern</key>
-        		<string>hdn-download-link\" href=\"(/download/.*)\" </string>
+        		<string>href=\"(/download/.*)\" id</string>
         		<key>url</key>
-        		<string>https://www.macupdate.com/app/mac/25779/acorn/download</string>
+        		<string>https://www.macupdate.com/app/mac/16969/tunnelblick</string>
         		<key>result_output_var_name</key>
         		<string>url_stub</string>
         	</dict>
@@ -49,3 +49,6 @@
     </array>
 </dict>
 </plist>
+
+
+
